@@ -4,6 +4,9 @@ import shutil
 
 import pytest
 
+from fixtures_and_scope.jokes import Joke
+
+
 @pytest.fixture(scope="session")
 def single_joke_csv_filepath():
     #a fixture that returns the path to a temporary csv file containing a single joke 
@@ -34,6 +37,6 @@ def single_joke(single_joke_csv_filepath):
     with open(single_joke_csv_filepath, 'r', newline='') as jokes_file:
         reader = csv.reader(jokes_file)
         contents = list(reader)
-        
-        return contents[1]
+
+        return Joke(setup=contents[1][0], punchline=contents[1][1])
 
