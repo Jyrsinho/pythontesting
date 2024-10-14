@@ -14,12 +14,18 @@ def test_get_random_joke_can_return_all_different_jokes(multiple_jokes_csv_filep
 
     Explanation:
 
-    With three distinct values, the first sample will always be a new joke. The second sample will be a new one with a probability of 2/3. The third sample will be new with a probability of either 1/3 or 2/3 depending on the outcome of the second sample, the former being the more probable one.
+    With three distinct values, the first sample will always be a new joke. The second sample will be a new one with a 
+    probability of 2/3. The third sample will be new with a probability of either 1/3 or 2/3 depending on the outcome 
+    of the second sample, the former being the more probable one.
 
     To make the problem easier, let's first look at only getting two out of the three jokes.
-    With a mere 10 samples, the probability of not getting two out of three jokes is (1-2/3)^9 ≈ 0.00005 = 1/20 000 and with 20 samples, we already get the probability down to (1-2/3)^19 which is less than 1 000 000 000.
+    With a mere 10 samples, the probability of not getting two out of three jokes is (1-2/3)^9 ≈ 0.00005 = 1/20 000 
+    and with 20 samples, we already get the probability down to (1-2/3)^19 which is less than 1 000 000 000.
 
-    Then, we need to get our final joke. Now, assuming a situation where we have already sampled two out of three jokes, the probability of getting the last joke is 1/3. The probability of not getting the last joke in 10 samples is much higher this time; (1-1/3)^9 ≈ 0.026 ≈ 1/30, but with 50 samples, we are again at extremely low probabilities (1-1/3)^49 ≈ 1.5 / 1 000 000 000.
+    Then, we need to get our final joke. Now, assuming a situation where we have already sampled two out of three jokes, 
+    the probability of getting the last joke is 1/3. The probability of not getting the last joke in 10 samples is much
+     higher this time; (1-1/3)^9 ≈ 0.026 ≈ 1/30, but with 50 samples, we are again at extremely low probabilities 
+     (1-1/3)^49 ≈ 1.5 / 1 000 000 000.
     """
 
     # With a small number of jokes and high number of samples, the probability of not getting all jokes is near non-existent
