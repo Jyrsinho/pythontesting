@@ -41,4 +41,15 @@ def test_should_return_joke_with_given_id(mock_find_jokes, test_jokes):
     assert joke['setup'] == 'How do you organize a space party?'
     assert joke['punchline'] == 'You planet'
     
+#
+@patch('main.find_jokes')
+def test_should_return_a_list_of_jokes(mock_find_jokes, test_jokes):
+    mock_find_jokes.return_value = test_jokes
+    
+    response = client.get('/joke/all')
+    assert response.status_code == 200
+    
+    jokes = response.json()
+    
+    assert jokes == test_jokes
     

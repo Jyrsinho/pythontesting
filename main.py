@@ -28,6 +28,7 @@ def find_jokes() -> list[Joke]:
     return [Joke(id=i + 1, **joke) for i, joke in enumerate(raw_jokes)]
 
 
+
 def find_joke(id: int) -> Joke:
     raw_jokes = from_csv_to_dict(get_joke_csv_path(), read_until=id)
     if id < 1 or id > len(raw_jokes):
